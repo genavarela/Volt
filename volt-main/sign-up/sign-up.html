@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../images/logo.png"/>
+    <title>Para empezar, ingresá un DNI o un CUIT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img class="img-logo" src="logo.png" alt="Volt">
+        </div>
+    </header>
+    <main class="login-section">
+        <div class="login-container">
+            <h2>Para empezar, ingresá un DNI o un CUIT</h2>
+            <form class="login-form">
+                <div class="input-group">
+                    <p style="margin-bottom: 20px; font-size: 15px; margin-bottom: 15px;">El documento determinará quién será titular de la cuenta, podés ser vos o tu negocio.</p>
+                    <input type="text" id="cuit" name="cuit" placeholder="Ingresá tu CUIT o DNI">
+                </div>
+                <button class="login-btn">Entrar</button>
+            </form>
+        </div>
+    </main>    
+
+    <script>
+    function validarCUIT(cuit) {
+        cuit = cuit.replace(/-/g, '');
+
+        if (!/^\d{11}$/.test(cuit)) return false;
+
+        const coef = [5, 4, 3, 2, 7, 6, 5, 4, 3, 2];
+        const digits = cuit.split('').map(Number);
+        const checkDigit = digits.pop();
+
+        const sum = digits.reduce((acc, val, i) => acc + val * coef[i], 0);
+        const mod11 = 11 - (sum % 11);
+        const verificador = mod11 === 11 ? 0 : mod11 === 10 ? 9 : mod11;
+
+        return checkDigit === verificador;
+    }
+
+    function validarDNI(dni) {
+        dni = dni.replace(/\D/g, '');
+        return dni.length >= 7 && dni.length <= 8;
+    }
+
+    document.querySelector(".login-form").addEventListener("submit", function(e) {
+    e.preventDefault(); // ⚠️ evita que se recargue la página y ponga el ? en la URL
+
+    const input = document.getElementById("cuit").value.trim();
+    const limpio = input.replace(/-/g, '');
+
+    if (limpio.length === 11 && validarCUIT(limpio)) {
+        alert("CUIT válido. Redirigiendo...");
+        // Redirigir a index.html en la carpeta exterior
+        window.location.href = "../index.html";
+    } else if (limpio.length <= 8 && validarDNI(limpio)) {
+        alert("DNI válido. Redirigiendo...");
+        // Redirigir a index.html en la carpeta exterior
+        window.location.href = "../index.html";
+    } else {
+        alert("Documento inválido. Revisá el número.");
+    }
+    });
+    </script>
+</body>
+</html>
