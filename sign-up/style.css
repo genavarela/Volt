@@ -1,0 +1,68 @@
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  background-color: rgb(255, 255, 255); /* mismo color que el body */
+}
+
+.login-container {
+  background-color: rgb(95, 95, 95);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.login-container h2 {
+  margin-bottom: 24px;
+  color: #333;
+  font-weight: 600;
+}
+
+.login-form .input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 6px;
+  color: #444;
+  font-weight: 500;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #070202;
+  border-radius: 8px;
+  font-size: 18px;
+  background-color: rgb(255, 255, 255);
+}
+
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #4879ff;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.login-btn:hover {
+  background-color: #365edc;
+}
+
+.img-logo {
+  max-height: 50px;  /* Ajuste el tamaño del logo según lo necesites */
+  width: auto;
+  display: block;
+  cursor: pointer; /* Puntero solo en la imagen */
+  pointer-events: auto; /* Solo la imagen debe responder al cursor */
+}
