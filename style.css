@@ -165,3 +165,52 @@ body {
     border-radius: 10px;
     padding: 9px 25px;
 }
+
+body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+
+  .contenedor-tarjetas {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px; /* Espacio entre tarjetas */
+    margin-top: 100px;
+  }
+
+  .tarjeta, .tarjeta2 {
+    width: 200px;
+    background-color: rgb(94, 91, 91);
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(255, 0, 0, 0.671);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tarjeta img,
+  .tarjeta2 img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .contenido-tarjeta h2,
+  .contenido-tarjeta2 h2 {
+    font-size: 24px;
+    margin: 10px 0 5px;
+  }
+
+  .contenido-tarjeta h6,
+  .contenido-tarjeta2 h6 {
+    font-size: 14px;
+    color: #ccc;
+    margin: 0;
+  }
